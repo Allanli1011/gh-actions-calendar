@@ -76,6 +76,20 @@ TRIGGER:-PT15M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:gha-Allanli1011-gh-actions-calendar-refresh.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240107T011700Z
+DTEND:20240107T014700Z
+RRULE:FREQ=DAILY
+SUMMARY:⏰ Refresh Actions Calendar - gh-actions-calendar
+DESCRIPTION:仓库: Allanli1011/gh-actions-calendar\nWorkflow: refresh.yml\ncron (UTC): 17 1 * * *\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Refresh Actions Calendar - gh-actions-calendar
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:gha-Allanli1011-lottery-daily-predict.yml@allanli1011
 DTSTAMP:20240101T000000Z
 DTSTART:20240107T140000Z
