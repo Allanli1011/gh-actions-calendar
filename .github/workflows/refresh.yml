@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Require CALENDAR_PAT (else skip, don't overwrite full feed)
         env:
@@ -25,7 +25,7 @@ jobs:
             echo "SKIP=true" >> "$GITHUB_ENV"
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: env.SKIP != 'true'
         with:
           python-version: "3.11"
