@@ -20,6 +20,8 @@ API = "https://api.github.com"
 TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
 USER = os.environ.get("GITHUB_REPOSITORY_OWNER") or os.environ.get("OWNER") or "Allanli1011"
 ALARM_MIN = int(os.environ.get("ALARM_MINUTES", "15"))
+# Repos to skip (default: this calendar repo itself — avoid a self-referential event)
+EXCLUDE = {n.strip() for n in (os.environ.get("EXCLUDE_REPOS") or "gh-actions-calendar").split(",") if n.strip()}
 
 # A fixed Sunday, so DTSTART is deterministic across regenerations (stable diff).
 ANCHOR_SUNDAY = datetime.date(2024, 1, 7)
@@ -64,7 +66,7 @@ def list_repos():
     except urllib.error.HTTPError:
         repos = paged(f"/users/{USER}/repos?per_page=100&type=owner&page={{page}}")
         sys.stderr.write("repo source: public-only (no user PAT)\n")
-    return [r for r in repos if not r.get("fork") and not r.get("archived")]
+    return [r for r in repos if not r.get("fork") and not r.get("archived") and r["name"] not in EXCLUDE]
 
 
 def workflow_files(full):
