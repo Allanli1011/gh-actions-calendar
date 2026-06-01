@@ -1,0 +1,51 @@
+name: Refresh Actions Calendar
+
+on:
+  schedule:
+    # 每天 01:17 UTC(故意避开整点,减少排队延迟)= 北京 09:17
+    - cron: "17 1 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require CALENDAR_PAT (else skip, don't overwrite full feed)
+        env:
+          PAT: ${{ secrets.CALENDAR_PAT }}
+        run: |
+          if [ -z "$PAT" ]; then
+            echo "::warning::CALENDAR_PAT not set — skipping refresh so the full feed is not overwritten with public-only data. See README."
+            echo "SKIP=true" >> "$GITHUB_ENV"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: env.SKIP != 'true'
+        with:
+          python-version: "3.11"
+
+      - name: Generate calendar feed
+        if: env.SKIP != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.CALENDAR_PAT }}
+          ALARM_MINUTES: "15"
+        run: python generate_calendar.py --out github-actions-schedule.ics
+
+      - name: Commit if changed
+        if: env.SKIP != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add github-actions-schedule.ics
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: refresh actions calendar"
+            git push
+          fi

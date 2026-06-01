@@ -1,0 +1,120 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Allanli1011//GitHub Actions Schedule//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GitHub Actions 定时任务
+X-WR-TIMEZONE:Asia/Shanghai
+BEGIN:VEVENT
+UID:gha-Allanli1011-COT-Trading-weekly-signal-monitor.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240113T080000Z
+DTEND:20240113T083000Z
+RRULE:FREQ=WEEKLY;BYDAY=SA
+SUMMARY:⏰ Weekly COT Signal Monitor - COT-Trading
+DESCRIPTION:仓库: Allanli1011/COT-Trading\nWorkflow: weekly-signal-monitor.yml\ncron (UTC): 0 8 * * 6\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Weekly COT Signal Monitor - COT-Trading
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-cn-index-signal-monitor-daily_signal.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240107T230000Z
+DTEND:20240107T233000Z
+RRULE:FREQ=WEEKLY;BYDAY=SU,MO,TU,WE,TH
+SUMMARY:⏰ Daily A-Share Signal - cn-index-signal-monitor
+DESCRIPTION:仓库: Allanli1011/cn-index-signal-monitor\nWorkflow: daily_signal.yml\ncron (UTC): 0 23 * * 0-4\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Daily A-Share Signal - cn-index-signal-monitor
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-cn-index-signal-monitor-post_market_pnl.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240108T083000Z
+DTEND:20240108T090000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:⏰ Post-Market PnL - cn-index-signal-monitor
+DESCRIPTION:仓库: Allanli1011/cn-index-signal-monitor\nWorkflow: post_market_pnl.yml\ncron (UTC): 30 8 * * 1-5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Post-Market PnL - cn-index-signal-monitor
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-cn-index-signal-monitor-weekly_review.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240112T093000Z
+DTEND:20240112T100000Z
+RRULE:FREQ=WEEKLY;BYDAY=FR
+SUMMARY:⏰ Weekly Review (Rolling Sharpe) - cn-index-signal-monitor
+DESCRIPTION:仓库: Allanli1011/cn-index-signal-monitor\nWorkflow: weekly_review.yml\ncron (UTC): 30 9 * * 5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Weekly Review (Rolling Sharpe) - cn-index-signal-monitor
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-cn_stock_scan-daily_scan.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240108T110000Z
+DTEND:20240108T113000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:⏰ Daily A-Share Scan - cn_stock_scan
+DESCRIPTION:仓库: Allanli1011/cn_stock_scan\nWorkflow: daily_scan.yml\ncron (UTC): 0 11 * * 1-5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Daily A-Share Scan - cn_stock_scan
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-lottery-daily-predict.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240107T140000Z
+DTEND:20240107T143000Z
+RRULE:FREQ=WEEKLY;BYDAY=SU,MO,TU,WE,TH,SA
+SUMMARY:⏰ 每日开奖后预测 (Daily Prediction) - lottery
+DESCRIPTION:仓库: Allanli1011/lottery\nWorkflow: daily-predict.yml\ncron (UTC): 0 14 * * 0,1,2,3,4,6\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ 每日开奖后预测 (Daily Prediction) - lottery
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-uc-trading-daily-signal.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240108T220000Z
+DTEND:20240108T223000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:⏰ Daily UC Signal - uc-trading
+DESCRIPTION:仓库: Allanli1011/uc-trading\nWorkflow: daily-signal.yml\ncron (UTC): 0 22 * * 1-5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Daily UC Signal - uc-trading
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-us_commodities_scan-daily_scan.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240108T230000Z
+DTEND:20240108T233000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:⏰ Daily Futures Scan - us_commodities_scan
+DESCRIPTION:仓库: Allanli1011/us_commodities_scan\nWorkflow: daily_scan.yml\ncron (UTC): 0 23 * * 1-5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Daily Futures Scan - us_commodities_scan
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
