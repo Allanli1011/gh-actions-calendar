@@ -20,6 +20,20 @@ TRIGGER:-PT15M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:gha-Allanli1011-cffex-daily-analysis-daily-report.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240108T093000Z
+DTEND:20240108T100000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:⏰ Daily CFFEX Report - cffex-daily-analysis
+DESCRIPTION:仓库: Allanli1011/cffex-daily-analysis\nWorkflow: daily-report.yml\ncron (UTC): 30 9 * * 1-5\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Daily CFFEX Report - cffex-daily-analysis
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:gha-Allanli1011-chan-theory-daily-futures-chan-scan.yml@allanli1011
 DTSTAMP:20240101T000000Z
 DTSTART:20240108T233000Z
@@ -114,6 +128,20 @@ DESCRIPTION:仓库: Allanli1011/uc-trading\nWorkflow: daily-signal.yml\ncron (UT
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:⏰ Daily UC Signal - uc-trading
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gha-Allanli1011-us-senator-tracker-collector.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240107T231700Z
+DTEND:20240107T234700Z
+RRULE:FREQ=DAILY
+SUMMARY:⏰ Senate PTR Collector - us-senator-tracker
+DESCRIPTION:仓库: Allanli1011/us-senator-tracker\nWorkflow: collector.yml\ncron (UTC): 17 23 * * *\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Senate PTR Collector - us-senator-tracker
 TRIGGER:-PT15M
 END:VALARM
 END:VEVENT
