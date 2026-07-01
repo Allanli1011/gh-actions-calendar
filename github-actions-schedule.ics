@@ -174,6 +174,20 @@ TRIGGER:-PT15M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
+UID:gha-Allanli1011-polymarket-commodities-refresh.yml@allanli1011
+DTSTAMP:20240101T000000Z
+DTSTART:20240107T020000Z
+DTEND:20240107T023000Z
+RRULE:FREQ=DAILY
+SUMMARY:⏰ Refresh & Deploy - polymarket-commodities
+DESCRIPTION:仓库: Allanli1011/polymarket-commodities\nWorkflow: refresh.yml\ncron (UTC): 0 2 * * *\n说明: GitHub 整点常延迟 1-3 小时。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Refresh & Deploy - polymarket-commodities
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:gha-Allanli1011-shfe-broker-pnl-daily-report.yml@allanli1011
 DTSTAMP:20240101T000000Z
 DTSTART:20240108T103000Z
